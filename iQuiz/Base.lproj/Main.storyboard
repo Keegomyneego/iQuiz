@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="edX-t0-ZMF">
             <objects>
                 <tableViewController id="wPp-WP-7Ah" customClass="SubjectTableViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,13 @@
                             <outlet property="delegate" destination="wPp-WP-7Ah" id="jpe-oT-Off"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2xE-1q-oBy"/>
+                    <navigationItem key="navigationItem" title="Title" id="gYT-8Z-0vE">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="h7o-BK-Jt8">
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="wPp-WP-7Ah" id="CWb-28-Cmp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlX-6P-lmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

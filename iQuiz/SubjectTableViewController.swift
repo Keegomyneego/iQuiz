@@ -24,6 +24,13 @@ class SubjectTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "SubjectTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "SubjectCell")
     }
 
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
