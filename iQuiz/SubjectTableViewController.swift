@@ -16,6 +16,12 @@ class SubjectTableViewController: UITableViewController {
         "Science"
     ]
 
+    var descriptions: [String] = [
+        "The study of number, quantity, and space.",
+        "Benevolent fictional characters with superhuman powers.",
+        "The study of structure and behavior of the natural world."
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,10 +57,8 @@ class SubjectTableViewController: UITableViewController {
         if let subjectCell = cell as? SubjectTableViewCell {
             let index = indexPath.row
 
-            let title = data[index]
-
-            subjectCell.titleLabel.text = title
-            subjectCell.descriptionLabel.text = "\(title) \(title) \(title)"
+            subjectCell.titleLabel.text = data[index]
+            subjectCell.descriptionLabel.text = descriptions[index]
         }
 
         return cell
