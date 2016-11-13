@@ -36,7 +36,7 @@ class SubjectTableViewController: UITableViewController {
     }
 
     //
-    // MARK: - UITableView DataSource
+    // MARK: - UITableView Methods
     //
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,6 +66,10 @@ class SubjectTableViewController: UITableViewController {
         return -1
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "CellSelected", sender: self)
+    }
+
     //
     // MARK: - IBActions
     //
@@ -83,9 +87,10 @@ class SubjectTableViewController: UITableViewController {
 
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("preparing for segue \(segue.identifier)")
         SegueActionMap.handle(segue, from: sender, withActions:
             [
-                "ShowDetail": SegueAction(to: QuizViewController.self) {
+                "CellSelected": SegueAction(to: QuizViewController.self) {
                     quizVC in
 
                     print("successly prepared to segue to \(type(of: quizVC))")

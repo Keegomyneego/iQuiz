@@ -20,16 +20,22 @@ class QuizViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
+    //
     // MARK: - Navigation
+    //
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        print("preparing for segue \(segue.identifier)")
+        SegueActionMap.handle(segue, from: sender, withActions:
+            [
+                "Next": SegueAction(to: QuizViewController.self) {
+                    quizVC in
 
+                    print("successly prepared to segue to \(type(of: quizVC))")
+                }
+            ]
+        )
+    }
 }
