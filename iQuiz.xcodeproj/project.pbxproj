@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9437E9B01DD7DE8000900B0C /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9AF1DD7DE8000900B0C /* QuizViewController.swift */; };
+		9437E9B31DD7E3AA00900B0C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9B21DD7E3AA00900B0C /* Log.swift */; };
+		9437E9B61DD8009800900B0C /* SegueAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9B51DD8009800900B0C /* SegueAction.swift */; };
+		9437E9B91DD800B100900B0C /* SegueActionMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9B81DD800B100900B0C /* SegueActionMap.swift */; };
+		9437E9BB1DD800C400900B0C /* SegueActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9BA1DD800C400900B0C /* SegueActionProtocol.swift */; };
 		944D6D021DCC19700048CB77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D6D011DCC19700048CB77 /* AppDelegate.swift */; };
 		944D6D041DCC19700048CB77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D6D031DCC19700048CB77 /* ViewController.swift */; };
 		944D6D071DCC19700048CB77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944D6D051DCC19700048CB77 /* Main.storyboard */; };
@@ -37,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9437E9AF1DD7DE8000900B0C /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		9437E9B21DD7E3AA00900B0C /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		9437E9B51DD8009800900B0C /* SegueAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueAction.swift; sourceTree = "<group>"; };
+		9437E9B81DD800B100900B0C /* SegueActionMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueActionMap.swift; sourceTree = "<group>"; };
+		9437E9BA1DD800C400900B0C /* SegueActionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueActionProtocol.swift; sourceTree = "<group>"; };
 		944D6CFE1DCC19700048CB77 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944D6D011DCC19700048CB77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		944D6D031DCC19700048CB77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +90,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9437E9B11DD7E39600900B0C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9437E9B21DD7E3AA00900B0C /* Log.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		9437E9B41DD8007D00900B0C /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				9437E9B71DD8009E00900B0C /* SegueActions */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		9437E9B71DD8009E00900B0C /* SegueActions */ = {
+			isa = PBXGroup;
+			children = (
+				9437E9B51DD8009800900B0C /* SegueAction.swift */,
+				9437E9B81DD800B100900B0C /* SegueActionMap.swift */,
+				9437E9BA1DD800C400900B0C /* SegueActionProtocol.swift */,
+			);
+			name = SegueActions;
+			sourceTree = "<group>";
+		};
 		944D6CF51DCC19700048CB77 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +139,8 @@
 		944D6D001DCC19700048CB77 /* iQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				9437E9B41DD8007D00900B0C /* Libraries */,
+				9437E9B11DD7E39600900B0C /* Utilities */,
 				944D6D2F1DCC42530048CB77 /* Controllers */,
 				944D6D011DCC19700048CB77 /* AppDelegate.swift */,
 				944D6D031DCC19700048CB77 /* ViewController.swift */,
@@ -138,6 +176,7 @@
 				944D6D301DCC42770048CB77 /* SubjectTableViewController.swift */,
 				944D6D321DCC467D0048CB77 /* SubjectTableViewCell.swift */,
 				944D6D331DCC467D0048CB77 /* SubjectTableViewCell.xib */,
+				9437E9AF1DD7DE8000900B0C /* QuizViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -280,10 +319,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9437E9B61DD8009800900B0C /* SegueAction.swift in Sources */,
 				944D6D341DCC467D0048CB77 /* SubjectTableViewCell.swift in Sources */,
+				9437E9B01DD7DE8000900B0C /* QuizViewController.swift in Sources */,
+				9437E9B31DD7E3AA00900B0C /* Log.swift in Sources */,
+				9437E9B91DD800B100900B0C /* SegueActionMap.swift in Sources */,
 				944D6D311DCC42770048CB77 /* SubjectTableViewController.swift in Sources */,
 				944D6D041DCC19700048CB77 /* ViewController.swift in Sources */,
 				944D6D021DCC19700048CB77 /* AppDelegate.swift in Sources */,
+				9437E9BB1DD800C400900B0C /* SegueActionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +578,7 @@
 				944D6D281DCC19700048CB77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944D6D291DCC19700048CB77 /* Build configuration list for PBXNativeTarget "iQuizTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +587,7 @@
 				944D6D2B1DCC19700048CB77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944D6D2C1DCC19700048CB77 /* Build configuration list for PBXNativeTarget "iQuizUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +596,7 @@
 				944D6D2E1DCC19700048CB77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

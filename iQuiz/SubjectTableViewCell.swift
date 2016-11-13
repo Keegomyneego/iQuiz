@@ -15,7 +15,10 @@ class SubjectTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         // Initialization code
+        self.contentView.autoresizingMask = UIViewAutoresizing.flexibleHeight
+        self.sizeToFit()
     }
 
 

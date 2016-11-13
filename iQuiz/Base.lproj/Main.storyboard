@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dlz-sX-7K7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dlz-sX-7K7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,20 +13,21 @@
         <scene sceneID="edX-t0-ZMF">
             <objects>
                 <tableViewController id="wPp-WP-7Ah" customClass="SubjectTableViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="28" sectionFooterHeight="28" id="IEZ-tP-gqk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="10" sectionHeaderHeight="28" sectionFooterHeight="28" id="IEZ-tP-gqk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="129" id="FW0-4X-B16" customClass="SubjectTableViewCell" customModule="iQuiz" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="129"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bF9-b7-Sn3" customClass="SubjectTableViewCell" customModule="iQuiz" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="10"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FW0-4X-B16" id="0rL-sl-twb">
-                                    <frame key="frameInset" width="375" height="128"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bF9-b7-Sn3" id="55v-ye-WsT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="9"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="wPp-WP-7Ah" id="iOb-Sm-REi"/>
                             <outlet property="delegate" destination="wPp-WP-7Ah" id="jpe-oT-Off"/>
@@ -33,6 +37,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="h7o-BK-Jt8">
                             <connections>
                                 <action selector="settingsButtonPressed:" destination="wPp-WP-7Ah" id="CWb-28-Cmp"/>
+                                <segue destination="4I4-cb-VD5" kind="showDetail" identifier="ShowDetail" id="Ipx-P5-wwQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -40,6 +45,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlX-6P-lmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="242.40000000000001" y="-481.70914542728639"/>
+        </scene>
+        <!--Quiz View Controller-->
+        <scene sceneID="1q2-jZ-Qhk">
+            <objects>
+                <viewController id="4I4-cb-VD5" customClass="QuizViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dVu-dc-8IU"/>
+                        <viewControllerLayoutGuide type="bottom" id="JOL-gO-ES5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lvf-WB-UEF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MRL-FS-LHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="-482"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2dd-Nb-gdS">
