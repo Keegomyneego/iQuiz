@@ -80,6 +80,14 @@ class QuizState {
             : .Answer
     }
 
+    func getQuestionCount() -> Int {
+        return quiz.questions.count
+    }
+
+    func getScore() -> Int {
+        return score
+    }
+
     // Chainable Mutators
 
     func guess(index: Int) {

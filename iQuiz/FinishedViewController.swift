@@ -10,6 +10,10 @@ import UIKit
 
 class FinishedViewController: UIViewController, QuizComponentViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var percentScoreLabel: UILabel!
+    @IBOutlet weak var fractionScoreLabel: UILabel!
+
     // external data
     private var quizState: QuizState?
 
@@ -17,6 +21,7 @@ class FinishedViewController: UIViewController, QuizComponentViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        refreshView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +31,31 @@ class FinishedViewController: UIViewController, QuizComponentViewController {
 
     func loadData(from state: QuizState) {
         self.quizState = state
+    }
+
+    private func refreshView() {
+        if let state = quizState {
+            let score = state.getScore()
+            let total = state.getQuestionCount()
+            let scoreAsPercent = Int(Double(score) / Double(total) * 100)
+            let scoreColor = UIColor(hue: CGFloat(scoreAsPercent) / CGFloat(200),
+                                     saturation: 0.8,
+                                     brightness: 0.8,
+                                     alpha: 1.0)
+            let messageText = scoreAsPercent == 100 ? "!!Perfect!!"
+                            : scoreAsPercent > 90   ? "Nice!"
+                            : scoreAsPercent > 70   ? "Good work"
+                            : scoreAsPercent > 50   ? "Well, it could be worse"
+                            : "Bruh"
+
+            messageLabel?.text = messageText
+            percentScoreLabel?.text = "  \(scoreAsPercent)%"
+            fractionScoreLabel?.text = "\(score) / \(total)"
+
+            messageLabel?.textColor = scoreColor
+            percentScoreLabel?.textColor = scoreColor
+            fractionScoreLabel?.textColor = scoreColor
+        }
     }
 
     /*

@@ -63,6 +63,17 @@ class QuizViewController: UIViewController {
             return
         }
 
+        // do nothing if user is on the question page and hasn't guessed
+        guard !(currentState.getCurrentPage() == .Question && currentState.getCurrentGuess() == nil) else {
+            return
+        }
+
+        // oh'p we've already finished, let's bail
+        guard currentState.getCurrentPage() != .Finish else {
+            let _ = self.navigationController?.popViewController(animated: true)
+            return
+        }
+
         let mainStoryboard = UIStoryboard(name: mainStoryboardName, bundle: Bundle.main)
 
         // Set the next VC to go to

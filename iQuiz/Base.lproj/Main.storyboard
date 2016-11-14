@@ -149,9 +149,54 @@
                     <view key="view" contentMode="scaleToFill" id="Gzr-Qd-zaW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYK-uN-7Ea">
+                                <rect key="frame" x="16" y="262.5" width="343" height="142"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPe-LT-3nZ" userLabel="Message">
+                                        <rect key="frame" x="137" y="0.0" width="69" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prP-rG-9IV" userLabel="Percent Score">
+                                        <rect key="frame" x="124" y="79" width="95" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fraction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUy-jz-PZB" userLabel="Fraction Score">
+                                        <rect key="frame" x="140" y="120.5" width="62.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="prP-rG-9IV" firstAttribute="centerX" secondItem="LYK-uN-7Ea" secondAttribute="centerX" id="5HP-ON-ta5"/>
+                                    <constraint firstItem="ZUy-jz-PZB" firstAttribute="centerX" secondItem="LYK-uN-7Ea" secondAttribute="centerX" id="7ZC-iL-KX4"/>
+                                    <constraint firstItem="kPe-LT-3nZ" firstAttribute="top" secondItem="LYK-uN-7Ea" secondAttribute="top" id="Dd5-EY-LQc"/>
+                                    <constraint firstItem="kPe-LT-3nZ" firstAttribute="centerX" secondItem="LYK-uN-7Ea" secondAttribute="centerX" id="QW7-Gi-R8D"/>
+                                    <constraint firstItem="ZUy-jz-PZB" firstAttribute="top" secondItem="prP-rG-9IV" secondAttribute="bottom" constant="8" id="ZVd-E0-6vd"/>
+                                    <constraint firstItem="ZUy-jz-PZB" firstAttribute="top" secondItem="kPe-LT-3nZ" secondAttribute="bottom" constant="100" id="kaC-cp-O2X"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZUy-jz-PZB" secondAttribute="bottom" id="vmd-EP-OOT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LYK-uN-7Ea" firstAttribute="leading" secondItem="Gzr-Qd-zaW" secondAttribute="leadingMargin" id="NuP-ah-iA9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LYK-uN-7Ea" secondAttribute="trailing" id="fyn-Tm-GEq"/>
+                            <constraint firstItem="LYK-uN-7Ea" firstAttribute="centerY" secondItem="Gzr-Qd-zaW" secondAttribute="centerY" id="sni-9y-zkc"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="fractionScoreLabel" destination="ZUy-jz-PZB" id="bS1-7w-JT9"/>
+                        <outlet property="messageLabel" destination="kPe-LT-3nZ" id="GAo-0k-ON6"/>
+                        <outlet property="percentScoreLabel" destination="prP-rG-9IV" id="XYz-pB-DU1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOm-7Y-F3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
