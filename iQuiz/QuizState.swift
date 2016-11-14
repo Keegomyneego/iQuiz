@@ -39,9 +39,12 @@ class QuizState {
 
     private init(copyFrom state: QuizState) {
         self.quiz = state.quiz
-        self.currentQuestionIndex = state.currentQuestionIndex
         self.finalQuestionIndex = state.finalQuestionIndex
+        self.score = state.score
+
+        self.currentQuestionIndex = state.currentQuestionIndex
         self.isAnswering = state.isAnswering
+        self.currentGuessIndex = state.currentGuessIndex
         self.indexOfTruth = state.indexOfTruth
     }
 
@@ -77,49 +80,33 @@ class QuizState {
             : .Answer
     }
 
-    func peekNextPage() -> Page {
-        let _ = iterate()
-        let nextPage = getCurrentPage()
-        let _ = rewind()
-
-        return nextPage
-    }
-
-    func peekNextQuestion() -> QuestionModel? {
-        let _ = iterate()
-        let nextQuestion = getCurrentQuestion()
-        let _ = rewind()
-
-        return nextQuestion
-    }
-
-    func peekNextState() -> QuizState {
-        let _ = iterate()
-        let nextState = QuizState(copyFrom: self)
-        let _ = rewind()
-
-        return nextState
-    }
-
     // Chainable Mutators
 
     func guess(index: Int) {
+        Log.info(self, "guessing at index \(index)")
         currentGuessIndex = index
     }
 
     func iterate() -> QuizState {
+        // prepare to show answer
         if isAnswering {
             isAnswering = false
+            if currentGuessIsRight() {
+                score += 1
+            }
         }
 
+        // prepare for next question
         else {
             isAnswering = true
+            currentGuessIndex = nil
             currentQuestionIndex += 1
         }
 
         return self
     }
 
+    // Warning: this may not be that robust
     func rewind() -> QuizState {
         if isAnswering {
             isAnswering = false

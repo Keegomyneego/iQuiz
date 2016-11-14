@@ -67,10 +67,11 @@ class QuizViewController: UIViewController {
 
         // Set the next VC to go to
 
+        let nextState = currentState.iterate()
         var nextVC: UIViewController
         var actionText: String
 
-        switch currentState.peekNextPage() {
+        switch nextState.getCurrentPage() {
 
         case .Question:
             nextVC = mainStoryboard.instantiateViewController(withIdentifier: "QuestionVC")
@@ -88,8 +89,6 @@ class QuizViewController: UIViewController {
         // Load state into it
 
         let quizComponentVC = nextVC as! QuizComponentViewController
-        let nextState = currentState.peekNextState()
-
         quizComponentVC.loadData(from: nextState)
 
         // Transition to it
@@ -108,7 +107,7 @@ class QuizViewController: UIViewController {
                         animations: nil,
                         completion:
             { success in
-                Log.info(self, "transition successful? \(success)")
+                Log.info(self, "transition successful? \(success)\n\n")
                 self.nextButton?.setTitle(actionText, for: .normal)
                 self.currentChildViewController = nextVC
                 self.currentChildViewController.view.frame = sameFrame

@@ -37,12 +37,12 @@ class AnswerViewController: QuestionViewController {
     }
 
     private func highlightAnswer() {
-        Log.info(self, "highlighting answer")
-
         guard let state = quizState else {
             Log.error(self, because: "quiz state is nil!")
             return
         }
+
+        Log.info(self, "highlighting answer, state.getCurrentGuess(): \(state.getCurrentGuess())")
 
         let correctColor = UIColor(hue: CGFloat(76) / CGFloat(360), saturation: 0.47, brightness: 0.86, alpha: 1.0)
         let incorrectColor = UIColor(hue: CGFloat(347) / CGFloat(360), saturation: 0.24, brightness: 0.96, alpha: 1.0)
@@ -60,7 +60,10 @@ class AnswerViewController: QuestionViewController {
             )
         }
     }
-    
+
+    override func visuallySelectButton(at targetIndex: Int, with color: UIColor?) {
+        buttons[targetIndex].backgroundColor = color ?? selectedColor
+    }
 
     /*
     // MARK: - Navigation
