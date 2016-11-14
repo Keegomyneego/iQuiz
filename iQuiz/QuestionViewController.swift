@@ -16,20 +16,28 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var answer3Button: UIButton!
     @IBOutlet weak var answer4Button: UIButton!
 
+    // external data
     private var question: QuestionModel?
     private var indexOfTruth: Int?
+    private var lastGuess: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupButtons()
         refreshView()
     }
 
     func loadData(from question: QuestionModel) {
         self.question = question
+    }
 
-        Log.info("\(type(of: self))", "loaded data")
+    private func setupButtons() {
+        answer1Button.tag = 0
+        answer1Button.tag = 1
+        answer1Button.tag = 2
+        answer1Button.tag = 3
     }
 
     private func refreshView() {
@@ -43,8 +51,20 @@ class QuestionViewController: UIViewController {
         }
     }
 
-    @IBAction func nextPressed(_ sender: UIButton) {
+    @IBAction func answerPressed(_ sender: UIButton) {
+        lastGuess = sender.tag
+    }
 
+    @IBAction func nextPressed(_ sender: UIButton) {
+        guard let lastGuess = self.lastGuess else {
+            return
+        }
+
+        guard let indexOfTruth = self.indexOfTruth else {
+            return
+        }
+
+        goToAnswer(assuming: lastGuess == indexOfTruth)
     }
 
     /*
@@ -56,5 +76,15 @@ class QuestionViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+
+    private func goToAnswer(assuming theyGotItRight: Bool) {
+        if theyGotItRight {
+            print("you did it")
+        }
+
+        else {
+            print("you fucked up")
+        }
+    }
     
 }
