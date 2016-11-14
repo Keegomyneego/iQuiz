@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol QuizComponentViewController {
+    func loadData(from state: QuizState)
+}

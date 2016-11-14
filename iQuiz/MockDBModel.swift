@@ -25,8 +25,6 @@ class MockDBModel {
     }
 
     static func getQuiz(at index: Int) -> QuizModel? {
-        Log.info(self, "getQuiz(at: \(index))")
-
         guard let quizzes = quizJSON as? [Any] else {
             Log.error(self, because: "unable to parse \(quizJSON) as? [Any]")
             return nil

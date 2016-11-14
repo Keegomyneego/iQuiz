@@ -8,7 +8,10 @@
 
 import UIKit
 
-class FinishedViewController: UIViewController {
+class FinishedViewController: UIViewController, QuizComponentViewController {
+
+    // external data
+    private var quizState: QuizState?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,10 @@ class FinishedViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func loadData(from state: QuizState) {
+        self.quizState = state
+    }
 
     /*
     // MARK: - Navigation

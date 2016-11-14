@@ -27,6 +27,8 @@
 		944D6D311DCC42770048CB77 /* SubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D6D301DCC42770048CB77 /* SubjectTableViewController.swift */; };
 		944D6D341DCC467D0048CB77 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D6D321DCC467D0048CB77 /* SubjectTableViewCell.swift */; };
 		944D6D351DCC467D0048CB77 /* SubjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 944D6D331DCC467D0048CB77 /* SubjectTableViewCell.xib */; };
+		949077481DD9BCEC00B4DE85 /* QuizState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949077471DD9BCEC00B4DE85 /* QuizState.swift */; };
+		9490774A1DD9C15300B4DE85 /* QuizComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949077491DD9C15300B4DE85 /* QuizComponentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		944D6D301DCC42770048CB77 /* SubjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTableViewController.swift; sourceTree = "<group>"; };
 		944D6D321DCC467D0048CB77 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
 		944D6D331DCC467D0048CB77 /* SubjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectTableViewCell.xib; sourceTree = "<group>"; };
+		949077471DD9BCEC00B4DE85 /* QuizState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizState.swift; sourceTree = "<group>"; };
+		949077491DD9C15300B4DE85 /* QuizComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizComponentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 				9437E9CC1DD90D8100900B0C /* QuestionViewController.swift */,
 				9437E9CE1DD90D9800900B0C /* AnswerViewController.swift */,
 				9437E9D01DD90DAC00900B0C /* FinishedViewController.swift */,
+				949077471DD9BCEC00B4DE85 /* QuizState.swift */,
+				949077491DD9C15300B4DE85 /* QuizComponentViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				9437E9C91DD8889200900B0C /* QuestionModel.swift in Sources */,
 				9437E9CB1DD8903600900B0C /* MockDBModel.swift in Sources */,
 				9437E9B01DD7DE8000900B0C /* QuizViewController.swift in Sources */,
+				9490774A1DD9C15300B4DE85 /* QuizComponentViewController.swift in Sources */,
 				9437E9B31DD7E3AA00900B0C /* Log.swift in Sources */,
 				9437E9CD1DD90D8100900B0C /* QuestionViewController.swift in Sources */,
 				9437E9C51DD8885300900B0C /* QuizModel.swift in Sources */,
@@ -362,6 +369,7 @@
 				9437E9D11DD90DAC00900B0C /* FinishedViewController.swift in Sources */,
 				9437E9B91DD800B100900B0C /* SegueActionMap.swift in Sources */,
 				944D6D311DCC42770048CB77 /* SubjectTableViewController.swift in Sources */,
+				949077481DD9BCEC00B4DE85 /* QuizState.swift in Sources */,
 				944D6D021DCC19700048CB77 /* AppDelegate.swift in Sources */,
 				9437E9BB1DD800C400900B0C /* SegueActionProtocol.swift in Sources */,
 			);

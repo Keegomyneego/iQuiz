@@ -15,7 +15,6 @@ class QuizModel {
     let questions: [QuestionModel]
 
     init?(from jsonObject: Any) {
-        print("Disecting jsonObject: \(jsonObject)")
         guard
             let props = jsonObject as? [String : Any],
             let title = props["title"] as? String,

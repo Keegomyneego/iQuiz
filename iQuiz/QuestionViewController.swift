@@ -8,18 +8,20 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController {
+class QuestionViewController: UIViewController, QuizComponentViewController {
 
-    @IBOutlet weak var questionLabel: UILabel!
+    let selectedColor: UIColor = UIColor(hue: CGFloat(195) / CGFloat(360), saturation: 0.4, brightness: 1.0, alpha: 1.0)
+
+    @IBOutlet weak var questionLabel: UILabel?
     @IBOutlet weak var answer1Button: UIButton!
     @IBOutlet weak var answer2Button: UIButton!
     @IBOutlet weak var answer3Button: UIButton!
     @IBOutlet weak var answer4Button: UIButton!
 
+    var buttons: [UIButton] = []
+
     // external data
-    private var question: QuestionModel?
-    private var indexOfTruth: Int?
-    private var lastGuess: Int?
+    var quizState: QuizState?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,62 +31,51 @@ class QuestionViewController: UIViewController {
         refreshView()
     }
 
-    func loadData(from question: QuestionModel) {
-        self.question = question
+    func loadData(from state: QuizState) {
+        Log.info(self, "loading state:    \(state)")
+        Log.info(self, "for current page: \(state.getCurrentPage())")
+        self.quizState = state
     }
 
     private func setupButtons() {
-        answer1Button.tag = 0
-        answer1Button.tag = 1
-        answer1Button.tag = 2
-        answer1Button.tag = 3
+        let optionalButtons: [UIButton?] = [
+            answer1Button,
+            answer2Button,
+            answer3Button,
+            answer4Button,
+        ]
+
+        self.buttons = optionalButtons.flatMap({ $0 })
+
+        Log.info(self, "button count: \(buttons.count)")
+
+        for index in 0..<buttons.count {
+            buttons[index].tag = index
+        }
     }
 
     private func refreshView() {
-        if let question = self.question {
-            questionLabel.text = question.text
-            indexOfTruth = question.answer
-            answer1Button.setTitle(question.answers[0], for: UIControlState.normal)
-            answer2Button.setTitle(question.answers[1], for: UIControlState.normal)
-            answer3Button.setTitle(question.answers[2], for: UIControlState.normal)
-            answer4Button.setTitle(question.answers[3], for: UIControlState.normal)
+        if let question = self.quizState?.getCurrentQuestion() {
+            questionLabel?.text = question.text
+
+            for index in 0..<buttons.count {
+                buttons[index].setTitle(question.answers[index], for: UIControlState.normal)
+            }
         }
     }
 
     @IBAction func answerPressed(_ sender: UIButton) {
-        lastGuess = sender.tag
+        let buttonIndex = sender.tag
+
+        quizState?.guess(index: buttonIndex)
+        visuallySelectButton(at: buttonIndex)
     }
 
-    @IBAction func nextPressed(_ sender: UIButton) {
-        guard let lastGuess = self.lastGuess else {
-            return
-        }
+    internal func visuallySelectButton(at targetIndex: Int, with color: UIColor? = nil) {
+        buttons.forEach({
+            $0.backgroundColor = UIColor.clear
+        })
 
-        guard let indexOfTruth = self.indexOfTruth else {
-            return
-        }
-
-        goToAnswer(assuming: lastGuess == indexOfTruth)
+        buttons[targetIndex].backgroundColor = color ?? selectedColor
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
-    private func goToAnswer(assuming theyGotItRight: Bool) {
-        if theyGotItRight {
-            print("you did it")
-        }
-
-        else {
-            print("you fucked up")
-        }
-    }
-    
 }

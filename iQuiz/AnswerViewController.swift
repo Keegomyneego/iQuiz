@@ -8,17 +8,57 @@
 
 import UIKit
 
-class AnswerViewController: UIViewController {
+class AnswerViewController: QuestionViewController {
+
+    // external data
+//    private var quizState: QuizState? {
+//        didSet {
+//            Log.info(self, ">>>> did set")
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        disableAnswerButtons()
+        highlightAnswer()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    private func disableAnswerButtons() {
+        self.buttons.forEach({
+            $0.isUserInteractionEnabled = false
+        })
+    }
+
+    private func highlightAnswer() {
+        Log.info(self, "highlighting answer")
+
+        guard let state = quizState else {
+            Log.error(self, because: "quiz state is nil!")
+            return
+        }
+
+        let correctColor = UIColor(hue: CGFloat(76) / CGFloat(360), saturation: 0.47, brightness: 0.86, alpha: 1.0)
+        let incorrectColor = UIColor(hue: CGFloat(347) / CGFloat(360), saturation: 0.24, brightness: 0.96, alpha: 1.0)
+
+        let theAnswerIndex = state.getCurrentQuestion().answer
+        visuallySelectButton(at: theAnswerIndex,
+                             with: correctColor)
+
+        if let theGuessIndex = state.getCurrentGuess() {
+            Log.info(self, "highlighting guess")
+            visuallySelectButton(at: theGuessIndex,
+                                 with: state.currentGuessIsRight()
+                                    ? correctColor
+                                    : incorrectColor
+            )
+        }
     }
     
 

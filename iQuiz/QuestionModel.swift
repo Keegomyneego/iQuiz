@@ -15,9 +15,21 @@ class QuestionModel {
     let answers: [String]
 
     init?(from jsonObject: Any) {
-        guard let props = (jsonObject as? [String : Any]) else { print("FUCK 1") ; return nil }
-        guard let text = props["text"] as? String else { print("FUCK 2") ; return nil }
-        guard let answer = Int(props["answer"] as? String ?? "") else { print("FUCK 3") ; return nil }
+        guard let props = (jsonObject as? [String : Any]) else {
+            Log.error(QuestionModel.self, because: "failed to parse from jsonObject: \(jsonObject)")
+            return nil
+        }
+
+        guard let text = props["text"] as? String else {
+            Log.error(QuestionModel.self, because: "failed to parse from jsonObject: \(jsonObject)")
+            return nil
+        }
+
+        guard let answer = Int(props["answer"] as? String ?? "") else {
+            Log.error(QuestionModel.self, because: "failed to parse from jsonObject: \(jsonObject)")
+            return nil
+        }
+
         guard let answers = props["answers"] as? [String] else {
             Log.error(QuestionModel.self, because: "failed to parse from jsonObject: \(jsonObject)")
             return nil

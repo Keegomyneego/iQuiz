@@ -27,19 +27,18 @@ class SegueActionMap {
     // Handles the given storyboard segue using the current map of actions
     func handle(_ segue: UIStoryboardSegue, from sender: Any?) {
         let segueIdentifier = segue.identifier ?? ""
-        let errorTag = "Error preparing for \"\(segueIdentifier)\" segue"
 
         // Ensure segue identifier is supported
         let allowedIdentifiers = self.actionMap.keys
         guard allowedIdentifiers.contains(segueIdentifier) else {
-            return Log.error(errorTag, because: "\(segueIdentifier) is not supported")
+            return Log.error(self, because: "segueIdentifier \(segueIdentifier) is not supported")
         }
 
         let action = self.actionMap[segueIdentifier]!
 
         // Attempt to perform preparation
         guard action.canSegue(to: segue.destination) else {
-            return Log.error(errorTag, (
+            return Log.error(self, (
                 expected: "destination VC to be a \(action.destinationVCType)",
                 actual: "\(type(of: segue.destination))"
             ))
