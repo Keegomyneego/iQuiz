@@ -133,7 +133,7 @@
                         <outlet property="answer2Button" destination="JEz-fX-6Kl" id="ntu-hr-QLZ"/>
                         <outlet property="answer3Button" destination="ZcR-rz-Tda" id="8zc-27-37b"/>
                         <outlet property="answer4Button" destination="wie-vV-6xc" id="pYe-zQ-cMt"/>
-                        <outlet property="questionLabel" destination="WgQ-wm-TH1" id="rdh-DA-s6p"/>
+                        <outlet property="questionLabel" destination="WgQ-wm-TH1" id="EAX-Fc-B4R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRL-FS-LHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,7 +227,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXK-Pb-0LJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <connections>
-                                    <segue destination="TLp-hV-5kE" kind="embed" id="0Ao-ep-2nJ"/>
+                                    <segue destination="TLp-hV-5kE" kind="embed" identifier="EmbedChildVC" id="0Ao-ep-2nJ"/>
                                 </connections>
                             </containerView>
                         </subviews>

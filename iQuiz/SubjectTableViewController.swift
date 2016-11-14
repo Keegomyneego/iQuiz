@@ -55,7 +55,7 @@ class SubjectTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "CellSelected", sender: self)
+        goToQuiz(withId: indexPath.row)
     }
 
     //
@@ -73,15 +73,23 @@ class SubjectTableViewController: UITableViewController {
     // MARK: - Navigation
     //
 
+    private func goToQuiz(withId quizId: Int) {
+        self.performSegue(withIdentifier: "CellSelected", sender: quizId)
+    }
+
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("preparing for segue \(segue.identifier)")
         SegueActionMap.handle(segue, from: sender, withActions:
             [
                 "CellSelected": SegueAction(to: QuizViewController.self) {
                     quizVC in
 
-                    print("successly prepared to segue to \(type(of: quizVC))")
+                    guard let quizId = sender as? Int else {
+                        Log.error(self, because: "can't segue to quiz without a quizId")
+                        return
+                    }
+
+                    quizVC.loadData(fromTheQuizWith: quizId)
                 }
             ]
         )

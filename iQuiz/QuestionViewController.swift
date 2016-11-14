@@ -16,21 +16,31 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var answer3Button: UIButton!
     @IBOutlet weak var answer4Button: UIButton!
 
+    private var question: QuestionModel?
     private var indexOfTruth: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        refreshView()
     }
 
     func loadData(from question: QuestionModel) {
-        questionLabel.text = question.text
-        indexOfTruth = question.answer
-        answer1Button.setTitle(question.answers[0], for: UIControlState.normal)
-        answer2Button.setTitle(question.answers[1], for: UIControlState.normal)
-        answer3Button.setTitle(question.answers[2], for: UIControlState.normal)
-        answer4Button.setTitle(question.answers[3], for: UIControlState.normal)
+        self.question = question
+
+        Log.info("\(type(of: self))", "loaded data")
+    }
+
+    private func refreshView() {
+        if let question = self.question {
+            questionLabel.text = question.text
+            indexOfTruth = question.answer
+            answer1Button.setTitle(question.answers[0], for: UIControlState.normal)
+            answer2Button.setTitle(question.answers[1], for: UIControlState.normal)
+            answer3Button.setTitle(question.answers[2], for: UIControlState.normal)
+            answer4Button.setTitle(question.answers[3], for: UIControlState.normal)
+        }
     }
 
     @IBAction func nextPressed(_ sender: UIButton) {

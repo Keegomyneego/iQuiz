@@ -10,6 +10,8 @@ import Foundation
 
 class MockDBModel {
 
+    private static let quizJSON = try? JSONSerialization.jsonObject(with: quizJSONString.data(using: String.Encoding.nonLossyASCII)!)
+
     static func getSubject(at index: Int) -> String {
         return subjectInfo[index]["Subject"] ?? ""
     }
@@ -23,10 +25,15 @@ class MockDBModel {
     }
 
     static func getQuiz(at index: Int) -> QuizModel? {
-        guard
-            let quizzes = quizJSON as? [Any],
-            quizzes.count > index
-        else {
+        Log.info(self, "getQuiz(at: \(index))")
+
+        guard let quizzes = quizJSON as? [Any] else {
+            Log.error(self, because: "unable to parse \(quizJSON) as? [Any]")
+            return nil
+        }
+
+        guard quizzes.count > index else {
+            Log.error(self, because: "unable to retrieve quiz at index \(index) of range 0..<\(quizzes.count)")
             return nil
         }
 
@@ -47,8 +54,6 @@ class MockDBModel {
             "Description": "The study of number, quantity, and space."
         ]
     ]
-
-    private static let quizJSON = try? JSONSerialization.jsonObject(with: quizJSONString.data(using: String.Encoding.nonLossyASCII)!)
 
     private static let quizJSONString: String =
         "[" +

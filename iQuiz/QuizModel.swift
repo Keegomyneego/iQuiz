@@ -15,13 +15,17 @@ class QuizModel {
     let questions: [QuestionModel]
 
     init?(from jsonObject: Any) {
+        print("Disecting jsonObject: \(jsonObject)")
         guard
-            let props = jsonObject as? [String : AnyObject],
+            let props = jsonObject as? [String : Any],
             let title = props["title"] as? String,
             let description = props["desc"] as? String,
-            let questions = (props["questions"] as? [AnyObject])?
+            let questions = (props["questions"] as? [Any])?
                 .map({ QuestionModel(from: $0) }) as? [QuestionModel]
-            else { return nil }
+            else {
+                Log.error(QuizModel.self, because: "failed to parse from jsonObject: \(jsonObject)")
+                return nil
+        }
 
         self.title = title
         self.description = description
