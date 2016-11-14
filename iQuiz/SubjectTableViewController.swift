@@ -10,18 +10,6 @@ import UIKit
 
 class SubjectTableViewController: UITableViewController {
 
-    var data: [String] = [
-        "Mathematics",
-        "Marvel Super Heroes",
-        "Science"
-    ]
-
-    var descriptions: [String] = [
-        "The study of number, quantity, and space.",
-        "Benevolent fictional characters with superhuman powers.",
-        "The study of structure and behavior of the natural world."
-    ]
-
     //
     // MARK: - UITableView Controller
     //
@@ -44,7 +32,7 @@ class SubjectTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return MockDBModel.getSubjectCount()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,8 +41,8 @@ class SubjectTableViewController: UITableViewController {
         if let subjectCell = cell as? SubjectTableViewCell {
             let index = indexPath.row
 
-            subjectCell.titleLabel.text = data[index]
-            subjectCell.descriptionLabel.text = descriptions[index]
+            subjectCell.titleLabel.text = MockDBModel.getSubject(at: index)
+            subjectCell.descriptionLabel.text = MockDBModel.getSubjectDescription(at: index)
         }
 
         return cell

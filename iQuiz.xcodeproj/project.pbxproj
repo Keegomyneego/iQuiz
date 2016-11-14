@@ -12,9 +12,13 @@
 		9437E9B61DD8009800900B0C /* SegueAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9B51DD8009800900B0C /* SegueAction.swift */; };
 		9437E9B91DD800B100900B0C /* SegueActionMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9B81DD800B100900B0C /* SegueActionMap.swift */; };
 		9437E9BB1DD800C400900B0C /* SegueActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9BA1DD800C400900B0C /* SegueActionProtocol.swift */; };
-		9437E9C01DD879ED00900B0C /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9437E9BE1DD879ED00900B0C /* QuizViewController.xib */; };
+		9437E9C51DD8885300900B0C /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9C41DD8885300900B0C /* QuizModel.swift */; };
+		9437E9C91DD8889200900B0C /* QuestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9C81DD8889200900B0C /* QuestionModel.swift */; };
+		9437E9CB1DD8903600900B0C /* MockDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9CA1DD8903600900B0C /* MockDBModel.swift */; };
+		9437E9CD1DD90D8100900B0C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9CC1DD90D8100900B0C /* QuestionViewController.swift */; };
+		9437E9CF1DD90D9800900B0C /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9CE1DD90D9800900B0C /* AnswerViewController.swift */; };
+		9437E9D11DD90DAC00900B0C /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437E9D01DD90DAC00900B0C /* FinishedViewController.swift */; };
 		944D6D021DCC19700048CB77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D6D011DCC19700048CB77 /* AppDelegate.swift */; };
-		944D6D041DCC19700048CB77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944D6D031DCC19700048CB77 /* ViewController.swift */; };
 		944D6D071DCC19700048CB77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944D6D051DCC19700048CB77 /* Main.storyboard */; };
 		944D6D091DCC19700048CB77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944D6D081DCC19700048CB77 /* Assets.xcassets */; };
 		944D6D0C1DCC19700048CB77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944D6D0A1DCC19700048CB77 /* LaunchScreen.storyboard */; };
@@ -48,10 +52,14 @@
 		9437E9B51DD8009800900B0C /* SegueAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueAction.swift; sourceTree = "<group>"; };
 		9437E9B81DD800B100900B0C /* SegueActionMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueActionMap.swift; sourceTree = "<group>"; };
 		9437E9BA1DD800C400900B0C /* SegueActionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueActionProtocol.swift; sourceTree = "<group>"; };
-		9437E9BE1DD879ED00900B0C /* QuizViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
+		9437E9C41DD8885300900B0C /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
+		9437E9C81DD8889200900B0C /* QuestionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
+		9437E9CA1DD8903600900B0C /* MockDBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDBModel.swift; sourceTree = "<group>"; };
+		9437E9CC1DD90D8100900B0C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		9437E9CE1DD90D9800900B0C /* AnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		9437E9D01DD90DAC00900B0C /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		944D6CFE1DCC19700048CB77 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		944D6D011DCC19700048CB77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		944D6D031DCC19700048CB77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		944D6D061DCC19700048CB77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944D6D081DCC19700048CB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		944D6D0B1DCC19700048CB77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,9 +130,18 @@
 			isa = PBXGroup;
 			children = (
 				944D6D331DCC467D0048CB77 /* SubjectTableViewCell.xib */,
-				9437E9BE1DD879ED00900B0C /* QuizViewController.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		9437E9C31DD8882F00900B0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9437E9C41DD8885300900B0C /* QuizModel.swift */,
+				9437E9C81DD8889200900B0C /* QuestionModel.swift */,
+				9437E9CA1DD8903600900B0C /* MockDBModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		944D6CF51DCC19700048CB77 = {
@@ -150,12 +167,12 @@
 		944D6D001DCC19700048CB77 /* iQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				9437E9C31DD8882F00900B0C /* Models */,
 				9437E9B41DD8007D00900B0C /* Libraries */,
 				9437E9B11DD7E39600900B0C /* Utilities */,
 				9437E9BC1DD8797D00900B0C /* Views */,
 				944D6D2F1DCC42530048CB77 /* Controllers */,
 				944D6D011DCC19700048CB77 /* AppDelegate.swift */,
-				944D6D031DCC19700048CB77 /* ViewController.swift */,
 				944D6D051DCC19700048CB77 /* Main.storyboard */,
 				944D6D081DCC19700048CB77 /* Assets.xcassets */,
 				944D6D0A1DCC19700048CB77 /* LaunchScreen.storyboard */,
@@ -188,6 +205,9 @@
 				944D6D301DCC42770048CB77 /* SubjectTableViewController.swift */,
 				944D6D321DCC467D0048CB77 /* SubjectTableViewCell.swift */,
 				9437E9AF1DD7DE8000900B0C /* QuizViewController.swift */,
+				9437E9CC1DD90D8100900B0C /* QuestionViewController.swift */,
+				9437E9CE1DD90D9800900B0C /* AnswerViewController.swift */,
+				9437E9D01DD90DAC00900B0C /* FinishedViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -306,7 +326,6 @@
 				944D6D0C1DCC19700048CB77 /* LaunchScreen.storyboard in Resources */,
 				944D6D091DCC19700048CB77 /* Assets.xcassets in Resources */,
 				944D6D071DCC19700048CB77 /* Main.storyboard in Resources */,
-				9437E9C01DD879ED00900B0C /* QuizViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,11 +352,16 @@
 			files = (
 				9437E9B61DD8009800900B0C /* SegueAction.swift in Sources */,
 				944D6D341DCC467D0048CB77 /* SubjectTableViewCell.swift in Sources */,
+				9437E9C91DD8889200900B0C /* QuestionModel.swift in Sources */,
+				9437E9CB1DD8903600900B0C /* MockDBModel.swift in Sources */,
 				9437E9B01DD7DE8000900B0C /* QuizViewController.swift in Sources */,
 				9437E9B31DD7E3AA00900B0C /* Log.swift in Sources */,
+				9437E9CD1DD90D8100900B0C /* QuestionViewController.swift in Sources */,
+				9437E9C51DD8885300900B0C /* QuizModel.swift in Sources */,
+				9437E9CF1DD90D9800900B0C /* AnswerViewController.swift in Sources */,
+				9437E9D11DD90DAC00900B0C /* FinishedViewController.swift in Sources */,
 				9437E9B91DD800B100900B0C /* SegueActionMap.swift in Sources */,
 				944D6D311DCC42770048CB77 /* SubjectTableViewController.swift in Sources */,
-				944D6D041DCC19700048CB77 /* ViewController.swift in Sources */,
 				944D6D021DCC19700048CB77 /* AppDelegate.swift in Sources */,
 				9437E9BB1DD800C400900B0C /* SegueActionProtocol.swift in Sources */,
 			);

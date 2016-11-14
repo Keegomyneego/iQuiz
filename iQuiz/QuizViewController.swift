@@ -10,30 +10,47 @@ import UIKit
 
 class QuizViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    var quizId: Int? {
+        didSet {
+            if let qId = quizId {
+                quiz = MockDBModel.getQuiz(at: qId)
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private var quiz: QuizModel? = nil
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        // UI based on Nib
+//        Bundle.main.loadNibNamed("QuizViewController", owner: self, options: nil)
     }
 
     //
     // MARK: - Navigation
     //
 
+    func loadData(fromTheQuizWith thisDopeAssQuizId: Int) {
+        self.quizId = thisDopeAssQuizId
+    }
+
     //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("preparing for segue \(segue.identifier)")
         SegueActionMap.handle(segue, from: sender, withActions:
             [
-                "Next": SegueAction(to: QuizViewController.self) {
-                    quizVC in
+                "CellSelected": SegueAction(to: QuestionViewController.self) {
+                    questionVC in
 
-                    print("successly prepared to segue to \(type(of: quizVC))")
+                    print("successly prepared to segue to \(type(of: questionVC))")
+
+                    guard let quiz = self.quiz else {
+                        return
+                    }
+
+                    // Start with the first question
+                    questionVC.loadData(from: quiz.questions[0])
                 }
             ]
         )
